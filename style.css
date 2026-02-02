@@ -7,26 +7,45 @@ html, body {
 
 body {
   background: #000;
-  overflow: hidden;
+  color: #ccc;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* ======================
-   Hero image
+   Main hero layout
 ====================== */
 .hero{
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  place-items: center;
-  background: #000;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  text-align: center;
+  padding: 40px 20px 80px; /* room for footer logo */
 }
 
-.hero-img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* shows full artwork */
+/* VAULT³ logo sizing */
+.vault-logo{
+  width: min(780px, 85vw);   /* THIS is the key fix */
+  height: auto;
   display: block;
+}
+
+/* Subtitle */
+.subtitle{
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  color: #bdbdbd;
+}
+
+/* Coming soon text */
+.coming-soon{
+  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #9a9a9a;
 }
 
 /* ======================
@@ -34,15 +53,26 @@ body {
 ====================== */
 .footer-logo{
   position: fixed;
-  bottom: 18px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .footer-logo img{
-  height: 22px;          /* SMALL + tasteful */
+  height: 22px;
   width: auto;
   display: block;
+}
+
+/* ======================
+   Mobile tuning
+====================== */
+@media (max-width: 600px){
+  .vault-logo{
+    width: 92vw;
+  }
+  .subtitle{
+    font-size: 14px;
+  }
 }
